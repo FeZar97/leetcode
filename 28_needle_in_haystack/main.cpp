@@ -38,6 +38,11 @@ private:
         return -1;
     }
 
+    int kmpSolution(const string& haystack, const string& needle)
+    {
+
+    }
+
 public:
     int strStr(const string& haystack, const string& needle)
     {
@@ -62,37 +67,37 @@ TEST_F(TestSolution, TestExample3) {
     ASSERT_EQ(sol.strStr("mississippi", "issip"), 4);
 }
 
-TEST_F(TestSolution, ManualyTest1) {
+TEST_F(TestSolution, ManuallyTest1) {
     Solution sol;
     ASSERT_EQ(sol.strStr("abcdefg", "cd"), 2);
 }
 
-TEST_F(TestSolution, ManualyTest2) {
+TEST_F(TestSolution, ManuallyTest2) {
     Solution sol;
     ASSERT_EQ(sol.strStr("a", "a"), 0);
 }
 
-TEST_F(TestSolution, ManualyTest3) {
+TEST_F(TestSolution, ManuallyTest3) {
     Solution sol;
     ASSERT_EQ(sol.strStr("a", "b"), -1);
 }
 
-TEST_F(TestSolution, ManualyTest4) {
+TEST_F(TestSolution, ManuallyTest4) {
     Solution sol;
     ASSERT_EQ(sol.strStr("a", "aa"), -1);
 }
 
-TEST_F(TestSolution, ManualyTest5) {
+TEST_F(TestSolution, ManuallyTest5) {
     Solution sol;
     ASSERT_EQ(sol.strStr("abba", "bb"), 1);
 }
 
-TEST_F(TestSolution, ManualyTest6) {
+TEST_F(TestSolution, ManuallyTest6) {
     Solution sol;
     ASSERT_EQ(sol.strStr("abbaabbaabbaabbba", "bb"), 1);
 }
 
-TEST_F(TestSolution, ManualyTest7) {
+TEST_F(TestSolution, ManuallyTest7) {
     Solution sol;
     ASSERT_EQ(sol.strStr("abbaabbaabbaabbba", "bbb"), 13);
 }
