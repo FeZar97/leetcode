@@ -20,3 +20,4 @@ include_directories(
 )
 
 add_subdirectory(28_needle_in_haystack)
+add_subdirectory(1539_Kth_Missing_Positive_Number)
