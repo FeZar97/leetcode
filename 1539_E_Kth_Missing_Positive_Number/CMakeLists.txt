@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10.2)
 
-project(Kth_Missing_Positive_Number)
+project(1539_E_Kth_Missing_Positive_Number)
 
 add_executable(
 	${PROJECT_NAME}

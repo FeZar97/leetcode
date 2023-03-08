@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10.2)
 
-project(28_needle_in_haystack)
+project(28_M_needle_in_haystack)
 
 add_executable(
 	${PROJECT_NAME}
