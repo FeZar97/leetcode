@@ -5,6 +5,7 @@ In a complete binary tree, every level, except possibly the last, is completely 
 It can have between 1 and 2^h nodes inclusive at the last level h.
 */
 
+#include <queue>
 #include <list>
 #include <string>
 
@@ -28,37 +29,41 @@ public:
     bool isCompleteTree(TreeNode* root)
     {
         std::list<TreeNode*> curLevelList{ root }, nextLevelList;
-        bool isFullLayer = true, isNextFull = true;
+        bool isCurComplete = true, isPrevComplete = true;
 
         while (!curLevelList.empty())
         {
             for (auto nodeIter = curLevelList.begin(); nodeIter != curLevelList.end(); nodeIter++)
             {
-                isNextFull &= (*nodeIter)->right && (*nodeIter)->left || !(*nodeIter)->right && !(*nodeIter)->left;
+                TreeNode* node = *nodeIter;
 
-                if (!isFullLayer && !isNextFull && nodeIter != prev(curLevelList.end()))
+                if (!node->left && node->right)
                 {
                     return false;
                 }
 
-                if ((*nodeIter)->right && !(*nodeIter)->left)
+                if (!isCurComplete && (node->left || node->right))
                 {
                     return false;
                 }
 
-                if ((*nodeIter)->left)
+                if ( node->left && !node->right || 
+                    (!node->left || !node->right) )
                 {
-                    nextLevelList.push_back((*nodeIter)->left);
+                    isCurComplete = false;
                 }
-                if ((*nodeIter)->right)
+
+                if (node->left)
                 {
-                    nextLevelList.push_back((*nodeIter)->right);
+                    nextLevelList.push_back(node->left);
+                }
+                if (node->right)
+                {
+                    nextLevelList.push_back(node->right);
                 }
             }
 
-            isFullLayer = isNextFull;
-            isNextFull = true;
-
+            isPrevComplete = isCurComplete;
             curLevelList = nextLevelList;
             nextLevelList.clear();
         }
