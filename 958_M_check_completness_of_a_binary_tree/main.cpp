@@ -26,7 +26,7 @@ struct TreeNode
 class Solution 
 {
 public:
-    bool isCompleteTree(TreeNode* root)
+    bool isCompleteTree2(TreeNode* root)
     {
         std::list<TreeNode*> curLevelList{ root }, nextLevelList;
         bool isCurComplete = true, isPrevComplete = true;
@@ -66,6 +66,36 @@ public:
             isPrevComplete = isCurComplete;
             curLevelList = nextLevelList;
             nextLevelList.clear();
+        }
+
+        return true;
+    }
+
+    bool isCompleteTree(TreeNode* root)
+    {
+        std::queue<TreeNode*> nodesQueue;
+        bool existNullableNode = false;
+
+        nodesQueue.push(root);
+
+        while (!nodesQueue.empty())
+        {
+            TreeNode* curNode = nodesQueue.front();
+            nodesQueue.pop();
+
+            if (!curNode)
+            {
+                existNullableNode = true;
+                continue;
+            }
+
+            if (existNullableNode)
+            {
+                return false;
+            }
+
+            nodesQueue.push(curNode->left);
+            nodesQueue.push(curNode->right);
         }
 
         return true;
