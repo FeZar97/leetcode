@@ -19,6 +19,7 @@ include_directories(
     ${GTEST_INCLUDE_DIRS}
 )
 
+add_subdirectory(23_H_merge_K_sorted_lists)
 add_subdirectory(28_M_needle_in_haystack)
 add_subdirectory(101_E_symmetric_tree)
 add_subdirectory(106_M_construct_binary_tree_from_inorder_and_postoreder_traversal)
