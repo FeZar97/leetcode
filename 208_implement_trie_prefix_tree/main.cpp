@@ -21,19 +21,10 @@ using namespace std;
 class Trie 
 {
     bool isFinal_{ false };
-    char c_;
 
-    std::unordered_map<char, Trie*> childs_;
+    std::unordered_map<char, std::unique_ptr<Trie>> childs_;
 
 public:
-    Trie()
-    { }
-
-    void setC(const char c)
-    {
-        c_ = c;
-    }
-
     void insert(const string& word)
     {
         if (word.empty())
@@ -48,8 +39,7 @@ public:
         auto childIter = childs_.find(childVal);
         if (childIter == childs_.end())
         {
-            childs_[childVal] = new Trie();
-            childs_[childVal]->setC(childVal);
+            childs_[childVal] = std::make_unique<Trie>();
             childs_[childVal]->insert(childWord);
         }
         else
