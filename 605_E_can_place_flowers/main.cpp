@@ -27,7 +27,7 @@ public:
             }
         }
         return n == 0;
-    }
+    } 
 };
 
 class TestSolution : public ::testing::Test { };

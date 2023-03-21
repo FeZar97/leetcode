@@ -34,4 +34,7 @@ add_subdirectory(1472_M_design_browser_history)
 add_subdirectory(1521_H_val_myesterious_func_closest2target)
 add_subdirectory(1539_E_Kth_Missing_Positive_Number)
 add_subdirectory(2187_M_min_time_to_complete_trips)
+add_subdirectory(2348_M_number_of_zero_filled_subarrays)
+
+
 
